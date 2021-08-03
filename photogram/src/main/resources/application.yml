@@ -1,0 +1,51 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: utf-8
+      enabled: true
+    
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+      
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3307/photogram?serverTimezone=Asia/Seoul
+    username: cos
+    password: cos1234
+    
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update #update - 원래정보는 그대로 업데이트만 된다. /create - 기존 테이블 drop 후 테이블 새로 만든다 /none - 암것두 안댐
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+      
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB  #이미지 업로드시 설정하는 부분!
+
+  security:
+    user:
+      name: test
+      password: 1234
+          oauth2:      client:        registration:
+          facebook:
+            client-id: 600275614291536
+            client-secret: 286a3327bd82177c3e1eb7d65865da1a
+            scope: #사이트마다 제공해주는것이 다르다!            - public_profile
+            - email
+                  
+
+file:
+  path: C:\Study\JSP\spring-workspace\upload\
+  
+  
+
+
